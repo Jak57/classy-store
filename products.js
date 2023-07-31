@@ -1,4 +1,5 @@
 module.exports = [
+  /*
   {
     name: "Basic Tee (Sienna)",
     price: 3200,
@@ -33,7 +34,7 @@ module.exports = [
     currency: "USD",
     image:
       "https://epic-projects.nyc3.digitaloceanspaces.com/react-ecommerce/billfold-wallet.jpeg",
-  },
+  }, */
   {
     name: "Mini Sketchbook Set",
     price: 2800,

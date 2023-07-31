@@ -5,7 +5,7 @@ import { useShoppingCart } from "use-shopping-cart"
 export default function CartPage() {
     const { cartCount, clearCart, formattedTotalPrice, cartDetails } = useShoppingCart()
     async function onCheckout() {
-        console.log("\n\nbye\n\n")
+        //console.log("\n\nbye\n\n")
         if (cartCount > 0) {
             console.log("Checkout successfull");
         } else {
@@ -49,12 +49,14 @@ export default function CartPage() {
                             Total:{" "}
                             <span className="font-semibold">{formattedTotalPrice}</span>
                         </p>
-                        <button onClick={onCheckout} className="border rounded py-2 px-6 bg-yellow-500 hover:bg-yellow-600 
-                        border-yellow-500 hover:border-yellow-600 focus:ring-4 focus:opacity-50 focus:ring-yellow-500 text-white
-                        transition-colors disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-yellow-500 mt-4
-                        max-w-max">
-                            Go to Checkout
-                        </button>
+                        <Link href="../checkout/DeliveryInfo">
+                            <button className="border rounded py-2 px-6 bg-yellow-500 hover:bg-yellow-600 
+                            border-yellow-500 hover:border-yellow-600 focus:ring-4 focus:opacity-50 focus:ring-yellow-500 text-white
+                            transition-color mt-4
+                            max-w-max">
+                                Go to Checkout
+                            </button>
+                        </Link>
                     </div>
                 </div>
             )}

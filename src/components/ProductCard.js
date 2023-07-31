@@ -40,7 +40,7 @@ export default function ProductCard({ product, index }) {
                             })}
                         </p>
                     </div>
-                    <button onClick={onAddToCart} className="border rounded-lg py-1 px-4">
+                    <button onClick={onAddToCart} className="border rounded-lg py-1 px-4 hover:border-lime-600 bg-lime-500 hover:bg-lime-600 text-white">
                         Add to Cart
                     </button>
                 </div>
