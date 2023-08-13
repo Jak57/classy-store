@@ -11,7 +11,7 @@ const userSchema = new mongoose.Schema({
       phone: String,
     },
     amount: Number,
-    currentDate: Date,
+    orderTime: Date,
     status: String,
     deliveredTime: Date,
     transactionId: String,

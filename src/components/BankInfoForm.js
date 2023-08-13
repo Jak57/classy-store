@@ -26,11 +26,11 @@ export default function BankInfoForm() {
         const address = {city, area, houseNo, phone};
 
         const amount = totalPrice/100;
-        const currentDate = new Date();
-        const orderTime = currentDate.toLocaleString();
+        const orderTime = new Date();
+        // const orderTime = currentDate.toLocaleString();
         const status = 'pending..'
-        const currentDate1 = new Date();
-        const deliveredTime = currentDate1.toLocaleString();
+        const deliveredTime = new Date();
+        // const deliveredTime = currentDate1.toLocaleString();
         const transactionId = generateRandomNumber(8);
 
         axios.get('http://localhost:3000/api/user/email').then(res=>{
