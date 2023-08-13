@@ -1,15 +1,26 @@
+import { useSession, signIn, signOut } from "next-auth/react";
 import Contact from "./Contact";
 
 export default function Footer() {
-    return (
-        <footer className="border-t border-gray-100 py-5 text-center">
-            {/* <p className="text-sm text-gray-500">
-                Contact us
-            </p> */}
-            <Contact />
-            {/* <p className="text-sm text-gray-500">
-            © 2023 ClassyStore. All rights reserved.
-            </p> */}
-        </footer>
-    )
+    const { data: session } = useSession();
+    if (session) {
+        if (session.user.email === "jakir3.csesust@gmail.com") { // bank admin
+            return (
+                <footer className="border-t border-gray-100 py-5 text-center">
+                </footer>
+            )
+        } else {
+            return (
+                <footer className="border-t border-gray-100 py-5 text-center">
+                    <Contact />
+                </footer>
+            )
+        }
+    } else {
+        return (
+            <footer className="border-t border-gray-100 py-5 text-center">
+                <Contact />
+            </footer>
+        )
+    }
 }
