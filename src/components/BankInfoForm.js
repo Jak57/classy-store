@@ -22,12 +22,19 @@ export default function BankInfoForm() {
             sessionStorage.setItem('accountNo', res.data.amountNo);
             sessionStorage.setItem('balance', res.data.balance);
             sessionStorage.setItem('name', res.data.name);
+<<<<<<< HEAD
             console.log("-------", res.data.amountNo, res.data.balance, res.data.name)
+=======
+>>>>>>> 55001392126bb187ab310f6e2ed745ec3cfb678a
             }).catch(e=>{
                 console.log("error")
             })
       };
+<<<<<<< HEAD
     fetchData();
+=======
+      fetchData();
+>>>>>>> 55001392126bb187ab310f6e2ed745ec3cfb678a
 
     const accountNo = sessionStorage.getItem('accountNo') || 'No data available';
     const balance = sessionStorage.getItem('balance') || 'No data available';
@@ -99,7 +106,11 @@ export default function BankInfoForm() {
                 <input name="account_no" type="text" id="nonEditableField" value={balance} readOnly className="border w-full rounded py-2 px-3 text-gray-700 bg-gray-100"/>
             </div>
             <div className="flex items-center justify-between">
+<<<<<<< HEAD
                 {balance*100 >= totalPrice ? (
+=======
+                {balance >= totalPrice ? (
+>>>>>>> 55001392126bb187ab310f6e2ed745ec3cfb678a
                     <button onClick={ successMessage } className="w-full bg-yellow-500 hover:bg-yellow-600 border-yellow-500 hover:border-yellow-600 text-white font-sm py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
                     Confirm
                     </button>

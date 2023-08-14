@@ -4,6 +4,7 @@ import users from "../../../../models/users";
 
 export default async function handler(req, res) {
   await connectDB();
+<<<<<<< HEAD
   const { orderId, email, totalPrice } = req.body;
   const supplierAccount = process.env.SUPPLIER_BANK_ACCOUNT_NO
   const ecomAccount = process.env.ECOMMERCE_BANK_ACCOUNT_NO
@@ -11,10 +12,19 @@ export default async function handler(req, res) {
   console.log(orderId, email, totalPrice)
   console.log("\nPrint...............")
   // res.json({success: "sucessful"})
+=======
+  const { _id, newValue, amountNo, totalPrice } = req.body;
+  const supplierAccount = process.env.SUPPLIER_BANK_ACCOUNT_NO
+  const ecomAccount = process.env.ECOMMERCE_BANK_ACCOUNT_NO
+  // console.log("\nPrint...............")
+  // console.log(supplierAccount, ecomAccount, amountNo, totalPrice)
+  // console.log("\nPrint...............")
+>>>>>>> 55001392126bb187ab310f6e2ed745ec3cfb678a
 
   const newdeliveredTime = new Date();
 
   try {
+<<<<<<< HEAD
     // const updatedDocument = await History.findByIdAndUpdate(
     //     _id,
     //     { $set: { 
@@ -38,6 +48,17 @@ export default async function handler(req, res) {
 
       // res.json({result10})
       
+=======
+    const updatedDocument = await History.findByIdAndUpdate(
+        _id,
+        { $set: { 
+            status: newValue,
+            deliveredTime: newdeliveredTime  
+        } },
+        { new: true }
+      );
+
+>>>>>>> 55001392126bb187ab310f6e2ed745ec3cfb678a
     // const 
     // const userAccount = amountNo
     // const _balance = balance + totalPrice;
@@ -48,14 +69,22 @@ export default async function handler(req, res) {
     //   console.log(result)
     
     // Initial Balance
+<<<<<<< HEAD
     const query = { email: email };
+=======
+    const query = { amountNo: amountNo };
+>>>>>>> 55001392126bb187ab310f6e2ed745ec3cfb678a
     const documents = await users.find(query)
     const _balance = documents[0].balance - totalPrice
     // console.log(documents)
     // console.log(_balance, typeof(_balance))
     // console.log("end")
 
+<<<<<<< HEAD
     const query1 = { email: email };
+=======
+    const query1 = { amountNo: amountNo };
+>>>>>>> 55001392126bb187ab310f6e2ed745ec3cfb678a
     const update1 = { $set: { balance: _balance } };
     const result1 = await users.findOneAndUpdate(query1, update1, { returnOriginal: false });
     // res.json({result1})

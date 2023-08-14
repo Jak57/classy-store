@@ -15,6 +15,7 @@ export default function Header() {
     if (session) {
         const email = session.user.email;
         // supplier admin
+<<<<<<< HEAD
         if (email === "jakirarnob0@gmail.com") { 
             return (
                 <header className="sticky top-0 bg-white z-10 shadow">
@@ -42,6 +43,9 @@ export default function Header() {
                 </header>
             )
         } else {
+=======
+        if (email === "jakirarnob0@gmail.com") {
+>>>>>>> 55001392126bb187ab310f6e2ed745ec3cfb678a
             return (
                 <header className="sticky top-0 bg-white z-10 shadow">
                     <div className="container mx-auto p-6 flex justify-between">
@@ -58,9 +62,15 @@ export default function Header() {
                                     <span className="text-sm text-gray-500">({cartCount})</span>
                                 </p>
                             </Link>
+<<<<<<< HEAD
                             {/* <Link href="/supplierDashboard" className="flex items-center space-x-2">
                                 <span className="hover:underline sm:inline-block font-semibold text-lg text-gray-700 hover:text-gray-900">Supplier Dashboard</span>{"  "}
                             </Link> */}
+=======
+                            <Link href="/supplierDashboard" className="flex items-center space-x-2">
+                                <span className="hover:underline sm:inline-block font-semibold text-lg text-gray-700 hover:text-gray-900">Supplier Dashboard</span>{"  "}
+                            </Link>
+>>>>>>> 55001392126bb187ab310f6e2ed745ec3cfb678a
                             <ProductLink />
                             <Profile />
                         </div>

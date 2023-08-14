@@ -22,6 +22,7 @@ export default function supplierDashboard() {
         fetchData();
     }, []);
 
+<<<<<<< HEAD
 
     const handleEditClick = async (totalPrice, orderId, email) => {
         // alert(`Edit clicked for: ${email}`);
@@ -45,6 +46,8 @@ export default function supplierDashboard() {
     //         })
     //   };
 
+=======
+>>>>>>> 55001392126bb187ab310f6e2ed745ec3cfb678a
     return (
         <div className="p-10">
             <div>
@@ -68,8 +71,14 @@ export default function supplierDashboard() {
                     <tbody>
                     {data.map((item) => (
                         <tr key={item.id} className="text-center">
+<<<<<<< HEAD
                         {/* <td>{item.id}</td> */}
                         <td className="border px-4 py-2">{item.orderId}</td>
+=======
+                        <td className="border px-4 py-2">{item.orderId}</td>
+
+                        {/* <td className="border px-4 py-2">{item.product}</td> */}
+>>>>>>> 55001392126bb187ab310f6e2ed745ec3cfb678a
                         <td className="border px-4 py-2">
                             <ul>
                                 {item.product.map((item, index) => (
@@ -78,14 +87,23 @@ export default function supplierDashboard() {
                             </ul>
                         </td>
                         <td className="border px-4 py-2">
+<<<<<<< HEAD
                             <ul>
                                 <li> {item.address.houseNo}, {item.address.area},  {item.address.city}</li>
+=======
+                            {/* {item.address.city} */}
+                            <ul>
+                                <li> {item.address.houseNo}, {item.address.area},  {item.address.city}</li>
+                                {/* <li>Area {": "} {item.address.area}</li>
+                                <li>House No {": "} {item.address.houseNo}</li> */}
+>>>>>>> 55001392126bb187ab310f6e2ed745ec3cfb678a
                                 <li>{item.address.phone}</li>
                             </ul>
                         </td>
                         <td className="border px-4 py-2">{item.amount}</td>
                         <td className="border px-4 py-2">{item.orderTime}</td>
                         <td className="border px-4 py-2">
+<<<<<<< HEAD
                             { item.status === "pending.." ? (
                                 <div className="flex items-center justify-between">
                                     <button onClick={() => handleEditClick(item.amount, item.orderId, item.email)} className="bg-yellow-500 hover:bg-yellow-600 border-yellow-500 hover:border-yellow-600  w-full text-white font-sm py-1 px-2 rounded focus:outline-none focus:shadow-outline">
@@ -97,6 +115,13 @@ export default function supplierDashboard() {
                             )
                                 
                             }
+=======
+                            {/* {item.status} */}
+                            <select id="dropdown" name="status">
+                                <option value="pending">pending..</option>
+                                <option value="delivered">delivered</option>
+                            </select>
+>>>>>>> 55001392126bb187ab310f6e2ed745ec3cfb678a
                         </td>
                         <td className="border px-4 py-2">{item.deliveredTime}</td>
                         <td className="border px-4 py-2">{item.transactionId}</td>
