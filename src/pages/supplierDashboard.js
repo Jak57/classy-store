@@ -1,8 +1,9 @@
 import axios from "axios";
-import MyOrderLogo from "./MyOrderLogo";
+// import MyOrderLogo from "./MyOrderLogo";
 import { useEffect, useState } from "react";
+import MyOrderLogo from "src/components/MyOrderLogo";
 
-export default function Table() {
+export default function supplierDashboard() {
     const [data, setData] = useState([]);
     useEffect(() => {
         async function fetchData() {
@@ -20,6 +21,29 @@ export default function Table() {
 
         fetchData();
     }, []);
+
+
+    const handleEditClick = async (totalPrice, orderId, email) => {
+        // alert(`Edit clicked for: ${email}`);
+        axios.post('http://localhost:3000/api/supplier/confirm',{email, totalPrice, orderId}).then(res=>{
+            // sessionStorage.setItem('accountNo', res.data.amountNo);
+            // sessionStorage.setItem('balance', res.data.balance);
+            // sessionStorage.setItem('name', res.data.name);
+            console.log(res.data)
+            }).catch(e=>{
+                console.log("error")
+            })
+    };
+
+    // const fetchData = async () => {
+    //     axios.post('http://localhost:3000/api/bank/getUser',{email}).then(res=>{
+    //         sessionStorage.setItem('accountNo', res.data.amountNo);
+    //         sessionStorage.setItem('balance', res.data.balance);
+    //         sessionStorage.setItem('name', res.data.name);
+    //         }).catch(e=>{
+    //             console.log("error")
+    //         })
+    //   };
 
     return (
         <div className="p-10">
@@ -44,9 +68,8 @@ export default function Table() {
                     <tbody>
                     {data.map((item) => (
                         <tr key={item.id} className="text-center">
+                        {/* <td>{item.id}</td> */}
                         <td className="border px-4 py-2">{item.orderId}</td>
-
-                        {/* <td className="border px-4 py-2">{item.product}</td> */}
                         <td className="border px-4 py-2">
                             <ul>
                                 {item.product.map((item, index) => (
@@ -55,17 +78,26 @@ export default function Table() {
                             </ul>
                         </td>
                         <td className="border px-4 py-2">
-                            {/* {item.address.city} */}
                             <ul>
                                 <li> {item.address.houseNo}, {item.address.area},  {item.address.city}</li>
-                                {/* <li>Area {": "} {item.address.area}</li>
-                                <li>House No {": "} {item.address.houseNo}</li> */}
                                 <li>{item.address.phone}</li>
                             </ul>
                         </td>
                         <td className="border px-4 py-2">{item.amount}</td>
                         <td className="border px-4 py-2">{item.orderTime}</td>
-                        <td className="border px-4 py-2">{item.status}</td>
+                        <td className="border px-4 py-2">
+                            { item.status === "pending.." ? (
+                                <div className="flex items-center justify-between">
+                                    <button onClick={() => handleEditClick(item.amount, item.orderId, item.email)} className="bg-yellow-500 hover:bg-yellow-600 border-yellow-500 hover:border-yellow-600  w-full text-white font-sm py-1 px-2 rounded focus:outline-none focus:shadow-outline">
+                                      deliver now
+                                    </button>
+                                </div>
+                            ) : (
+                                <div>{item.status}</div>
+                            )
+                                
+                            }
+                        </td>
                         <td className="border px-4 py-2">{item.deliveredTime}</td>
                         <td className="border px-4 py-2">{item.transactionId}</td>
                         </tr>
