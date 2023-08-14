@@ -1,8 +1,9 @@
 import axios from "axios";
-import MyOrderLogo from "./MyOrderLogo";
+// import MyOrderLogo from "./MyOrderLogo";
 import { useEffect, useState } from "react";
+import MyOrderLogo from "src/components/MyOrderLogo";
 
-export default function Table() {
+export default function supplierDashboard() {
     const [data, setData] = useState([]);
     useEffect(() => {
         async function fetchData() {
@@ -65,7 +66,13 @@ export default function Table() {
                         </td>
                         <td className="border px-4 py-2">{item.amount}</td>
                         <td className="border px-4 py-2">{item.orderTime}</td>
-                        <td className="border px-4 py-2">{item.status}</td>
+                        <td className="border px-4 py-2">
+                            {/* {item.status} */}
+                            <select id="dropdown" name="status">
+                                <option value="pending">pending..</option>
+                                <option value="delivered">delivered</option>
+                            </select>
+                        </td>
                         <td className="border px-4 py-2">{item.deliveredTime}</td>
                         <td className="border px-4 py-2">{item.transactionId}</td>
                         </tr>

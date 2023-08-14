@@ -2,34 +2,30 @@ import ProductCard from "src/components/ProductCard";
 import { stripe } from "src/utils/stripe"
 import { useSession, signOut } from "next-auth/react";
 import BankAccountSetUp from "src/components/BankAccountSetUp";
-// import AppLayout from "src/components/Layout";
-// import Link from "next/link";
-
-// function setSession() {
-//   const { data: session } = useSession();
-//   if (session) {
-//     const email = session.user.email
-//     sessionStorage.setItem('email', email);
-//     console.log('added to session')
-//     return email
-//   } else {
-//     return 'No data'
-//   }
-// }
-// const { data: session } = useSession();
-// if (session) {
-//   const email = session.user.email
-//   sessionStorage.setItem('email', email);
-//   console.log('added to session')
-// }
+import axios from "axios";
 
 export default function Home({ products }) {
-  //const email = setSession();
   products = products.slice(0, 3);
   const { data: session } = useSession();
-  //const email = session.user.email
 
   if (session) {
+      const email = session.user.email
+      sessionStorage.setItem('email', email);
+      console.log("Email\n", email)
+    // Todo: retrieve info
+    // axios.post('http://localhost:3000/api/bank/getUser',{email}).then(res=>{
+    //   console.log("--------------Data\n")
+    //   console.log(res.data)
+    //   console.log("----------------------Data\n")
+    //   sessionStorage.setItem('accountNo', res.data.accountNo);
+    //   sessionStorage.setItem('balance', res.data.balance);
+    //   sessionStorage.setItem('name', res.data.name);
+    // }).catch(e=>{
+    //     console.log("error")
+    // })
+    //return
+
+    
     if (session.user.email === "jakirr.csesust@gmail.com") { // First log in
       // const email = session.user.email
       // sessionStorage.setItem('email', email);
